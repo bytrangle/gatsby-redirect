@@ -1,0 +1,12 @@
+{
+  "name": "gatsby-redirect",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Trang Le <lethutrang101@gmail.com> (http://bytrangle.surge.sh)",
+  "license": "ISC"
+}

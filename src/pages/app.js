@@ -1,4 +1,7 @@
-import React from "react"
+import React, { useContext, useEffect, useState } from "react"
+import { navigate } from "gatsby"
+import { Container, Button, Heading } from "theme-ui"
+import { UserContext } from "../utils/Identity"
 
 const App = () => {
   const { user, identity: netlifyIdentity, loginComplete } = useContext(
@@ -6,6 +9,12 @@ const App = () => {
   )
   console.log(user)
   console.log(`login state is ${loginComplete}`)
+  useEffect(() => {
+    if (!user && loginComplete) {
+      navigate("/")
+    }
+  })
+  if (user)
     return (
       <Container>
         <Heading>Hello, {user?.user_metadata?.full_name}</Heading>
@@ -19,6 +28,7 @@ const App = () => {
         </Button>
       </Container>
     )
+  return <h1>Loading...</h1>
 }
 
 export default App

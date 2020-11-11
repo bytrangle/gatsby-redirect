@@ -9,26 +9,19 @@ const App = () => {
   )
   console.log(user)
   console.log(`login state is ${loginComplete}`)
-  useEffect(() => {
-    if (!user && loginComplete) {
-      navigate("/")
-    }
-  })
-  if (user)
-    return (
-      <Container>
-        <Heading>Hello, {user?.user_metadata?.full_name}</Heading>
-        <p>This is the authentication-restricted dashboard</p>
-        <Button
-          onClick={() => {
-            netlifyIdentity.logout()
-          }}
-        >
-          Log Out
-        </Button>
-      </Container>
-    )
-  return <h1>Loading...</h1>
+  return (
+    <Container>
+      <Heading>Hello, {user?.user_metadata?.full_name}</Heading>
+      <p>This is the authentication-restricted dashboard</p>
+      <Button
+        onClick={() => {
+          netlifyIdentity.logout()
+        }}
+      >
+        Log Out
+      </Button>
+    </Container>
+  )
 }
 
 export default App

@@ -5,14 +5,16 @@ const UserContext = createContext({})
 
 const IdentityProvider = ({ children }) => {
   const [loggedInUser, setUser] = useState()
+  const [loginComplete, setLoginState] = useState(false)
   useEffect(() => {
     netlifyIdentity.init()
   })
+  netlifyIdentity.on("init", user => {})
   netlifyIdentity.on("login", user => {
     console.log("logging in")
-    console.log(user)
     netlifyIdentity.close()
     setUser(user)
+    setLoginState(true)
   })
   netlifyIdentity.on("logout", () => {
     console.log("logging out")
@@ -21,7 +23,7 @@ const IdentityProvider = ({ children }) => {
   })
   return (
     <UserContext.Provider
-      value={{ identity: netlifyIdentity, user: loggedInUser }}
+      value={{ identity: netlifyIdentity, user: loggedInUser, loginComplete }}
     >
       {children}
     </UserContext.Provider>

@@ -10,6 +10,7 @@ const IdentityProvider = ({ children }) => {
   })
   netlifyIdentity.on("login", user => {
     console.log("logging in")
+    console.log(user)
     netlifyIdentity.close()
     setUser(user)
   })
@@ -19,7 +20,9 @@ const IdentityProvider = ({ children }) => {
     setUser()
   })
   return (
-    <UserContext.Provider value={{ identity: netlifyIdentity, loggedInUser }}>
+    <UserContext.Provider
+      value={{ identity: netlifyIdentity, user: loggedInUser }}
+    >
       {children}
     </UserContext.Provider>
   )

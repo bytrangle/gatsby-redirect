@@ -8,4 +8,5 @@ To check out the codes for redirection in Gatsby, checkout the branch **redirect
 <a href="https://app.netlify.com/start/deploy?repository=https://github.com/bytrangle/gatsby-redirect">
   <img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify" />
 </a>
+
 2. Follow my tutorial 😉.
